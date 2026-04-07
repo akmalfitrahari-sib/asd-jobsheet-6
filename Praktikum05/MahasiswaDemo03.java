@@ -1,18 +1,28 @@
+import java.util.Scanner;
 public class MahasiswaDemo03 {
     public static void main(String[] args) {
-        MahasiswaBerprestasi03 list = new MahasiswaBerprestasi03();
-        Mahasiswa03 m1 = new Mahasiswa03("123", "Zidan", "2A", 3.2);
-        Mahasiswa03 m2 = new Mahasiswa03("124", "Ayu", "2A", 3.5);
-        Mahasiswa03 m3 = new Mahasiswa03("125", "Sofi", "2A", 3.1);
-        Mahasiswa03 m4 = new Mahasiswa03("126", "Sita", "2A", 3.9);
-        Mahasiswa03 m5 = new Mahasiswa03("127", "Miki", "2A", 3.7);
+        Scanner sc = new Scanner (System.in);
 
-        list.tambah(m1);
-        list.tambah(m2);
-        list.tambah(m3);
-        list.tambah(m4);
-        list.tambah(m5);
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int n = sc.nextInt();
 
+        MahasiswaBerprestasi03 list = new MahasiswaBerprestasi03(n);
+        
+        for (int i = 0; i < n; i++) {
+            System.out.print("NIM: ");
+            String nim = sc.next();
+            System.out.print("Nama: ");
+            String nama = sc.next();
+            System.out.print("Kelas: ");
+            String kelas = sc.next();
+            System.out.print("IPK: ");
+            double ipk = sc.nextDouble();
+            System.out.println("--------------------");
+
+            Mahasiswa03 m = new Mahasiswa03(nim, nama, kelas, ipk);
+            list.tambah(m);
+        }
+        
         System.out.println("Data mahasiswa sebelum sorting: ");
         list.tampil();
 
